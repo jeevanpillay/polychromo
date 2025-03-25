@@ -1,15 +1,17 @@
 "use client"
 
-import { useState } from "react";
-import { ColorSwatch } from "./color-swatch";
-import { ColorFormatSwitcher, type ColorFormat } from "./color-format-switcher";
+import { useState, memo } from 'react';
+import { ColorSwatch } from './color-swatch';
+import { ColorFormatSwitcher } from './color-format-switcher';
+import type { ColorFormat } from '../lib/colors';
+import type { ColorData } from "~/types/colors";
 
 interface ColorGridProps {
-  colors: Array<{ color: string; name: string; }>;
+  colors: ColorData[][];
   title: string;
 }
 
-export function ColorGrid({ colors, title }: ColorGridProps) {
+export const ColorGrid = memo(function ColorGrid({ colors, title }: ColorGridProps) {
   const [format, setFormat] = useState<ColorFormat>('oklch');
 
   return (
@@ -23,16 +25,18 @@ export function ColorGrid({ colors, title }: ColorGridProps) {
       </div>
       <div className="relative">
         <div className="grid grid-cols-20 gap-2 px-4 py-4 border-b border-dashed border-t rounded-sm">
-          {colors.map((color, index) => (
-            <ColorSwatch
-              key={index}
-              colorClass={color.color}
-              name={color.name}
-              format={format}
-            />
+          {colors.map((row, rowIndex) => (
+            row.map((color, colIndex) => (
+              <ColorSwatch
+                key={`${rowIndex}-${colIndex}`}
+                colorClass={color.color}
+                name={color.name}
+                format={format}
+              />
+            ))
           ))}
         </div>
       </div>
     </div>
   );
-} 
+});
