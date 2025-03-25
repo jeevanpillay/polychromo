@@ -21,7 +21,7 @@ export const ColorGrid = memo(function ColorGrid({ colors, title }: ColorGridPro
         <h3 className="text-2xl font-semibold">{title}</h3>
         <ColorFormatSwitcher 
           currentFormat={format}
-          onFormatChange={setFormat}
+          onFormatChangeAction={setFormat}
         />
       </div>
       <div className="relative">

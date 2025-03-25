@@ -12,7 +12,7 @@ import { ChevronDown } from "lucide-react";
 export type ColorFormat = 'hex' | 'rgb' | 'hsl' | 'oklch' | 'className';
 
 interface ColorFormatSwitcherProps {
-  onFormatChange: (format: ColorFormat) => void;
+  onFormatChangeAction: (format: ColorFormat) => void;
   currentFormat: ColorFormat;
 }
 
@@ -24,9 +24,9 @@ const FORMAT_LABELS: Record<ColorFormat, string> = {
   className: 'className'
 };
 
-export function ColorFormatSwitcher({ onFormatChange, currentFormat }: ColorFormatSwitcherProps) {
+export function ColorFormatSwitcher({ onFormatChangeAction, currentFormat }: ColorFormatSwitcherProps) {
   const handleValueChange = (value: string) => {
-    onFormatChange(value as ColorFormat);
+    onFormatChangeAction(value as ColorFormat);
   };
 
   return (
