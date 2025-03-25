@@ -1,4 +1,4 @@
-import { ColorSwatch } from "~/components/color-swatch";
+import { ColorGrid } from "~/components/color-grid";
 
 const COLORS = [
   // Row 1 - Deep Blues (Navy to Royal)
@@ -123,7 +123,6 @@ const COLORS = [
 ];
 
 export default function Home() {
-
   return (
     <div className="flex min-h-screen flex-col">
       {/* Main Content */}
@@ -136,22 +135,10 @@ export default function Home() {
         {/* Color Sections */}
         <section className="">
           <div className="space-y-12 section-y">
-            {/* Blue Grid */}
-            <div className="space-y-4">
-              <h3 className="text-2xl font-semibold section-x">Blue</h3>
-              <div className="relative">
-                {/* <BackgroundGrid /> */}
-                <div className="grid grid-cols-20 gap-2 px-4 py-4 border-b border-dashed border-t rounded-sm">
-                  {COLORS.flat().map((color, index) => (
-                    <ColorSwatch
-                      key={index}
-                      colorClass={color.color}
-                      name={color.name}
-                    />
-                  ))}
-                </div>
-              </div>
-            </div>
+            <ColorGrid 
+              title="Blue"
+              colors={COLORS.flat()}
+            />
           </div>
         </section>
       </main>
