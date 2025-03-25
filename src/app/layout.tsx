@@ -36,7 +36,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <div className="flex items-center justify-end h-16 px-4">
+          <div className="fixed top-0 right-0 flex items-center justify-end h-16 px-4 w-full">
             <ThemeToggle />
           </div>
           {children}
