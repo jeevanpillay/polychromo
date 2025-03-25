@@ -3,6 +3,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "~/components/theme-provider";
 import { ThemeToggle } from "~/components/theme-toggle";
+import { voyage } from "~/fonts/voyage";
+import { cn } from "~/lib/utils";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -26,7 +28,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
@@ -36,9 +38,12 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <div className="fixed top-0 right-0 flex items-center justify-end h-16 px-4 w-full">
-            <ThemeToggle />
-          </div>
+          <header className="sticky top-0 z-50 w-full section-x bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+            <div className="flex w-full h-14 items-center justify-between">
+              <h1 className={cn("text-3xl font-bold", voyage.className)}>Polychromos</h1>
+              <ThemeToggle />
+            </div>
+          </header>
           {children}
         </ThemeProvider>
       </body>

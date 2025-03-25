@@ -44,7 +44,7 @@
 }
 
 :root {
-  --radius: 0.625rem;
+  --radius: 0.5rem;
   --background: oklch(1 0 0);
   --foreground: oklch(0.147 0.004 49.25);
   --card: oklch(1 0 0);
@@ -120,3 +120,18 @@
     @apply bg-background text-foreground;
   }
 }
+
+@layer components {
+  .section {
+    @apply border-b border-border;
+  }
+
+  .section-x {
+    @apply px-4 lg:px-8;
+  }
+
+  .section-y {
+    @apply py-6 md:py-12;
+  }
+}
+
