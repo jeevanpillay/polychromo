@@ -4,7 +4,7 @@ import { memo } from 'react';
 import { ColorSwatch } from './color-swatch';
 import { ColorFormatSwitcher } from './color-format-switcher';
 import type { ColorData } from "~/types/colors";
-import { useColorStore } from '../store/use-color-store';
+import { useColorGridStore } from '../store/use-color-grid-store';
 
 interface ColorGridProps {
   colors: ColorData[][];
@@ -12,8 +12,8 @@ interface ColorGridProps {
 }
 
 export const ColorGrid = memo(function ColorGrid({ colors, title }: ColorGridProps) {
-  const format = useColorStore((state) => state.format);
-  const setFormat = useColorStore((state) => state.setFormat);
+  const format = useColorGridStore((state) => state.format);
+  const setFormat = useColorGridStore((state) => state.setFormat);
 
   return (
     <div className="space-y-4">

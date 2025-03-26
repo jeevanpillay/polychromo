@@ -2,8 +2,8 @@
 
 import { useState, useCallback, memo } from 'react';
 import { Check, Copy } from 'lucide-react';
-import { getFormattedColor } from '../lib/colors';
-import type { ColorFormat } from '../lib/colors';
+import { getFormattedColor } from '~/lib/color-utils';
+import type { ColorFormat } from '~/lib/color-utils';
 import { cn } from '~/lib/utils';
 
 interface ColorSwatchProps {
