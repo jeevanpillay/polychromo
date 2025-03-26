@@ -1,5 +1,5 @@
 import { ColorGrid } from '~/components/color-grid';
-import { BLUE_COLORS } from '~/config/color-data';
+import { BLUE_COLORS, RED_COLORS, GREEN_COLORS } from '~/config/color-data';
 
 export default function Home() {
   return (
@@ -12,12 +12,20 @@ export default function Home() {
         </section>
 
         {/* Color Sections */}
-        <section className="section-y">
+        <div className="space-y-16 section-y">
           <ColorGrid 
             title="Blue"
             colors={BLUE_COLORS}
           />
-        </section>
+          <ColorGrid 
+            title="Red"
+            colors={RED_COLORS}
+          />
+          <ColorGrid 
+            title="Green"
+            colors={GREEN_COLORS}
+          />
+        </div>
       </main>
     </div>
   );
