@@ -3,8 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "~/components/theme-provider";
 import { ThemeToggle } from "~/components/theme-toggle";
-import { voyage } from "~/fonts/voyage";
-import { cn } from "~/lib/utils";
+import Link from "next/link";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -40,7 +39,7 @@ export default function RootLayout({
         >
           <header className="sticky top-0 z-50 w-full section-x bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
             <div className="flex w-full h-14 items-center justify-between">
-              <h1 className={cn("text-3xl font-bold", voyage.className)}>Polychromos</h1>
+              <Link href="/" className="text-3xl font-bold">Polychromos</Link>
               <ThemeToggle />
             </div>
           </header>
